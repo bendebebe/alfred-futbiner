@@ -3,6 +3,16 @@ const alfy = require('alfy');
 const axios = require('axios');
 
 (async () => {
+    if (alfy.input.replace(' ', '').length < 3) {
+        alfy.output([{
+            title: 'Type more characters to narrow down search',
+            subtitle: 'Must type 3 or more characters',
+			icon: {
+				path: 'icon.png' // Hide icon
+			}
+        }]);
+        return;
+    }
 	let data = await alfy.fetch('https://www.futbin.com/search', {
 		query: {
             year: 21,
@@ -13,7 +23,19 @@ const axios = require('axios');
         json: false
     });
 
-    let output = []
+    
+    if (JSON.parse(data.replace('\n', ''))['error']) {
+        alfy.output([{
+            title: 'Player not found',
+            subtitle: 'Error: ' + JSON.parse(data.replace('\n', ''))['error'],
+			icon: {
+				path: 'icon.png' // Hide icon
+			}
+        }]);
+        return;
+    }
+
+    let output = [];
 	for (const player of JSON.parse(data.replace('\n', ''))) {
         const player_id = player.image.match(/\d*\.png/)[0].split('.')[0];
         let prices = await axios.get('https://www.futbin.com/21/playerPrices?player=' + player_id);
