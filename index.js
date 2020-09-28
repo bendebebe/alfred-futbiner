@@ -66,7 +66,7 @@ const axios = require('axios');
 		output.push({
             title: title,
             subtitle: subtitle,
-			arg: 'https://www.futbin.com/21/player/542/' + player_id,
+			arg: 'https://www.futbin.com/21/player/' + player_id,
 			icon: {
 				path: 'icon.png' // Hide icon
 			}
