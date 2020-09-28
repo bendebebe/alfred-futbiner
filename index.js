@@ -16,7 +16,7 @@ const axios = require('axios');
     let output = []
 	for (const player of JSON.parse(data.replace('\n', ''))) {
         const player_id = player.image.match(/\d*\.png/)[0].split('.')[0];
-        let prices = await axios.get('https://www.futbin.com/20/playerPrices?player=' + player_id);
+        let prices = await axios.get('https://www.futbin.com/21/playerPrices?player=' + player_id);
         prices = prices['data'][player_id]['prices'];
 
         // let title = Buffer.from((await axios.get(player.club_image, {
