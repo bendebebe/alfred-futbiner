@@ -1,0 +1,41 @@
+{
+  "name": "alfred-futbiner",
+  "version": "1.0.0",
+  "description": "Futbin price finder for Alfred",
+  "license": "MIT",
+  "repository": "bendebebe/alfred-futbiner",
+  "author": {
+    "name": "Ben Debebe",
+    "email": "bendebebe@gmail.com",
+    "url": "github.com/bendebebe"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "scripts": {
+    "test": "xo && ava",
+    "postinstall": "alfy-init",
+    "preuninstall": "alfy-cleanup"
+  },
+  "files": [
+    "index.js",
+    "icon.png",
+    "info.plist"
+  ],
+  "keywords": [
+    "futbin",
+    "fut",
+    "alfred",
+    "workflow",
+    "alfy"
+  ],
+  "dependencies": {
+    "alfy": "^0.10.0",
+    "axios": "^0.20.0"
+  },
+  "devDependencies": {
+    "alfy-test": "^0.4.0",
+    "ava": "^3.13.0",
+    "xo": "^0.33.1"
+  }
+}
